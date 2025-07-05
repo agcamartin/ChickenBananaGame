@@ -82,7 +82,7 @@ function Game() {
                       alt={tileType}
                     />
                   ) : (
-                    <span className="?">?</span>
+                    <span className="tile-number">{idx + 1}</span>
                   )}
                 </div>
               );
