@@ -119,3 +119,9 @@
 .modal-content .restart-button {
   margin-top: 20px;
 }
+
+.tile-number {
+  font-size: 1rem;
+  color: black;
+}
+
