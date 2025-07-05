@@ -4,8 +4,8 @@ import './chickenbanana.css';
 const GRID_SIZE = 6;
 const TOTAL_TILES = GRID_SIZE * GRID_SIZE;
 
-const chickenImg = 'https://thumbs.dreamstime.com/b/little-baby-chicken-cartoon-illustration-white-background-cute-chick-children-book-kids-colorful-illustrations-bird-310200753.jpg?w=768';
-const bananaImg = 'https://thumbs.dreamstime.com/b/banana-14715288.jpg?w=768';
+const chickenImg = 'https://static.vecteezy.com/system/resources/previews/034/723/075/non_2x/ai-generated-hen-chicken-poultry-animal-free-png.png';
+const bananaImg = 'https://static.vecteezy.com/system/resources/previews/051/691/089/non_2x/adorable-banana-cartoon-character-on-transparent-background-free-png.png';
 
 function generateBoard() {
   const board = [];
@@ -55,14 +55,10 @@ function Game() {
   return (
     <div className="container">
       <h1>Chicken Banana Game</h1>
-      <img 
-      src="https://globalfajar.com/wp-content/uploads/2023/09/Banana-Chicken-A-Fusion-of-Taste-and-Health-Benefits-You-Dont-Want-to-Miss-jpg.webp" 
-      alt="Choose your side" 
-      style={{ width: '150px', marginBottom: '10px' }} 
-    />  
       {!choice && (
         <div className="choice-container">
-          <button className="choice-button" onClick={() => startGame('banana')}>Player Banana</button>
+          <p>Choose your Fighter!</p>
+          <button className="choice-button" onClick={() => startGame('banana')}>Player Banana          </button>
           <button className="choice-button" onClick={() => startGame('chicken')}>Player Chicken</button>
         </div>
       )}
@@ -94,33 +90,34 @@ function Game() {
           </div>
 
         {gameOver && (
-        <div className="result-container">
-            <h2 className="lose">YOU LOST THE ROUND!</h2>
-            <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-Q0k8LGeyPdlPDhZPdhR1yvoT9scpz2qcA&s" 
-            alt="Game over animation"
-            style={{ width: '200px', margin: '20px 0' }}
-            />
-            <p></p>
-            <button
-            className="restart-button"
-            onClick={() => {
-                setChoice(null);
-                setGameOver(false);
-                setClicked(new Set());
-                setBoard([]);
-                setWin(false);
-            }}
-            >
-            Restart
-            </button>
-        </div>
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h2 className="lose">YOU LOST THIS ROUND!</h2>
+              <img
+                src="https://media1.tenor.com/m/1cd4rNbBLagAAAAC/diaryofawimpykid-loser.gif"
+                alt="Game over animation"
+                style={{ width: '200px', margin: '20px 0' }}
+              />
+              <p>  </p>
+              <button
+                className="restart-button"
+                onClick={() => {
+                  setChoice(null);
+                  setGameOver(false);
+                  setClicked(new Set());
+                  setBoard([]);
+                  setWin(false);
+                }}
+              >
+                Restart
+              </button>
+            </div>
+          </div>
         )}
-
-
           {win && (
             <div className="result-container">
               <h2 className="win">YOU WON THE ROUND!</h2>
+              <></>
               <button
                 className="restart-button"
                 onClick={() => {
