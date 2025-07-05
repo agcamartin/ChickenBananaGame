@@ -10,7 +10,7 @@ const bananaImg = 'https://static.vecteezy.com/system/resources/previews/051/691
 function generateBoard() {
   const board = [];
   for (let i = 0; i < TOTAL_TILES; i++) {
-    board.push(Math.random() < 0.5 ? 'banana' : 'chicken');
+    board.push(Math.random() > 0.5 ? 'banana' : 'chicken');
   }
   return board;
 }
